@@ -1,0 +1,30 @@
+<div class="row m-4"> 
+  <div class="col-md-10 offset-md-1"> 
+  <div class="card m-4">
+  <h3 class="card-header text-center"><b style="color: rgb(112, 7, 7)">Select the menu</b></h3>
+  <div class="card-body">
+      <select class="form-control" [(ngModel)] ="selected"
+      (change)="selectInput($event)">
+       <option  disabled>select any one</option>
+         <option [ngValue]="1">1</option>
+           <option [ngValue]="2">2</option>
+     </select>
+     <br>
+     <form [formGroup]='rform'  (ngSubmit)="onSubmit()" *ngIf='selected==1 || selected==2'>
+     
+     <input formControlName='fname' class="form-control" placeholder="FatherName"><br>
+       <span class="text-danger" *ngIf='f.invalid&&(f.touched ||submitted)'>Father name is mandatory</span>
+     
+     <input formControlName='mname' class="form-control"  placeholder="MotherName"><br>
+       <span class="text-danger" *ngIf='m.invalid&&(m.touched ||submitted)'>Mother name is mandatory</span>
+     
+      
+       <input formControlName='occ' class="form-control"  placeholder="Occupation"><br>
+       <span class="text-danger" *ngIf='o.invalid&&(o.touched ||submitted)'>Occupation is mandatory</span><br/>
+        
+     <input type="submit" class='btn btn-primary' >
+     </form>
+</div>
+</div>
+</div>
+</div>
